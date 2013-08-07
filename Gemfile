@@ -2,5 +2,8 @@ source "http://rubygems.org"
 
 gem "rake"
 gem "rspec"
-gem "tomdoc"
-gem "guard-rspec"
+
+group :development do
+  gem "tomdoc"
+  gem "guard-rspec"
+end
