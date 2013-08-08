@@ -11,11 +11,11 @@ describe "Board" do
   it { should respond_to(:live_neighbour_count) }
 
   describe "#row_count" do
-  	specify { subject.row_count.should eql(5) }
+    specify { subject.row_count.should eql(5) }
   end
 
   describe "#column_count" do
-  	specify { subject.column_count.should eql(4) }
+    specify { subject.column_count.should eql(4) }
   end
 
   describe "#each_row" do
@@ -44,20 +44,20 @@ describe "Board" do
   end
 
   describe "#spawn_cells" do
-  	
-  	context "when called with valid list" do
-	  before { subject.spawn_cells([2,1], [2,2], [2,3]) }
+    
+    context "when called with valid list" do
+    before { subject.spawn_cells([2,1], [2,2], [2,3]) }
 
-	  specify { subject.to_s.should eql("0000\n0000\n0111\n0000\n0000\n") }
-	end
+    specify { subject.to_s.should eql("0000\n0000\n0111\n0000\n0000\n") }
+  end
   end
 
   describe "#to_s" do
 
-  	context "when no living cells exist" do
-  	  subject { GameOfLife::Board.new(3, 5).to_s }
+    context "when no living cells exist" do
+      subject { GameOfLife::Board.new(3, 5).to_s }
 
-  	  it { should eql("00000\n00000\n00000\n") }
-  	end
+      it { should eql("00000\n00000\n00000\n") }
+    end
   end
 end

@@ -2,7 +2,7 @@ module GameOfLife
   # Internal: Represents a grid to be used by the Game of Life
   class Board
     # Internal: the number of rows in the grid
-  	attr_reader :row_count
+    attr_reader :row_count
 
     # Internal: the number of columns per row
     attr_reader :column_count
@@ -17,11 +17,11 @@ module GameOfLife
     #     board = GameOfLife::Board.new(5, 5)
     #
     # Returns a new game board
-  	def initialize(rows, cols)
-  	  @row_count = rows
-  	  @column_count = cols
-  	  @cells = Array.new(rows) { Array.new(cols, 0) }
-  	end
+    def initialize(rows, cols)
+      @row_count = rows
+      @column_count = cols
+      @cells = Array.new(rows) { Array.new(cols, 0) }
+    end
 
     # Internal: Set the specified cell indices to live
     #
@@ -31,11 +31,11 @@ module GameOfLife
     #
     #     my_board.spawn_cells
     #     my_board.spawn_cells([2, 1], [2, 2])
-  	def spawn_cells(*cells)
-  	  cells.each do |row,col|
-  	  	@cells[row][col] = 1
-  	  end
-	  end
+    def spawn_cells(*cells)
+      cells.each do |row,col|
+        @cells[row][col] = 1
+      end
+    end
 
     # Internal: Iterator over each row
     #
@@ -83,12 +83,12 @@ module GameOfLife
       neighbouring_cells(row, col).count {|cell| cell == 1 }
     end
 
-  	def to_s
-  	  @cells.inject('') do |str, row|
-  	  	row.each {|cell| str << cell.to_s }
-  	  	str << "\n"
-  	  end
-  	end
+    def to_s
+      @cells.inject('') do |str, row|
+        row.each {|cell| str << cell.to_s }
+        str << "\n"
+      end
+    end
 
     private
 
